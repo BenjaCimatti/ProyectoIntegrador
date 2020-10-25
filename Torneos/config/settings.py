@@ -136,7 +136,7 @@ MATERIAL_ADMIN_SITE = {
     #'MAIN_HOVER_COLOR':  'color',  # Admin site main hover color, css color should be specified
     'PROFILE_PICTURE':  '/images/admin.png',  # Admin site profile picture (path to static should be specified)
     'PROFILE_BG':  '/images/profilebg.jpg',  # Admin site profile background (path to static should be specified)
-    #'LOGIN_LOGO':  'path/to/image',  # Admin site logo on login page (path to static should be specified)
+    'LOGIN_LOGO':  '/images/eladmin.jpg',  # Admin site logo on login page (path to static should be specified)
     #'LOGOUT_BG':  'path/to/image',  # Admin site background on login/logout pages (path to static should be specified)
     'SHOW_THEMES':  True,  #  Show default admin themes button
     'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default

@@ -1,7 +1,7 @@
-
+{% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom-2" style="background-color: #fa9d1a; background-image: linear-gradient(45deg, #fa9d1a 0%, #5e00ff 100%);">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand"  ><img src=" {% static '/images/LogoBlanco.png' %}"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,13 +11,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Crear Torneo</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="#">Ver Torneos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Inscribirse en Torneo</a>
       </li>
     </ul>
   </div>

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-background-size: cover;
+ html,body{
+background-image: url(/static/images/Fondo2.png);
+background-size: cover; 
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
@@ -44,7 +44,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
+background-color: #e39000;
 color: black;
 border:0 !important;
 }
@@ -69,7 +69,7 @@ margin-right: 5px;
 
 .login_btn{
 color: black;
-background-color: #FFC312;
+background-color: #e39000;
 width: 100px;
 }
 
