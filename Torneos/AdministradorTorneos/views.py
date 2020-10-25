@@ -3,6 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+def homePage(request):
+    return render(request, 'AdministradorTorneos/home.html')
+
 def registerPage(request):
     context = {}
     return render(request, 'AdministradorTorneos/register.html', context)
