@@ -1,79 +1,87 @@
-/* LOGIN FORM */
+@import url('https://fonts.googleapis.com/css?family=Numans');
 
-body.login {
-    background: #f8f8f8;
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
 }
 
-.login #header {
-    height: auto;
-    padding: 15px 16px;
-    justify-content: center;
+.container{
+height: 100%;
+align-content: center;
 }
 
-.login #header h1 {
-    font-size: 18px;
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
-.login #header h1 a {
-    color: #fff;
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
 }
 
-.login #content {
-    padding: 20px 20px 0;
+.social_icon span:hover{
+color: white;
+cursor: pointer;
 }
 
-.login #container {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
-    overflow: hidden;
-    width: 28em;
-    min-width: 300px;
-    margin: 100px auto;
+.card-header h3{
+color: white;
 }
 
-.login #content-main {
-    width: 100%;
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
 }
 
-.login .form-row {
-    padding: 4px 0;
-    float: left;
-    width: 100%;
-    border-bottom: none;
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
 }
 
-.login .form-row label {
-    padding-right: 0.5em;
-    line-height: 2em;
-    font-size: 1em;
-    clear: both;
-    color: #333;
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
 }
 
-.login .form-row #id_username, .login .form-row #id_password {
-    clear: both;
-    padding: 8px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+.remember{
+color: white;
 }
 
-.login span.help {
-    font-size: 10px;
-    display: block;
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
 }
 
-.login .submit-row {
-    clear: both;
-    padding: 1em 0 0 9.4em;
-    margin: 0;
-    border: none;
-    background: none;
-    text-align: left;
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
 }
 
-.login .password-reset-link {
-    text-align: center;
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
 }
