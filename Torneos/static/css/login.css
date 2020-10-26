@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
- html,body{
+#myVideo {
+    position: fixed;
+    right: -22%;
+    bottom: -20%;
+
+
+    width: auto;
+    height: auto;
+}
+
+.logo {
+    position: fixed;
+}
+
+html,body{
 background-image: url(/static/images/Fondo2.png);
 background-size: cover; 
 background-repeat: no-repeat;
