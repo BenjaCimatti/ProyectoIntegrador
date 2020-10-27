@@ -1,21 +1,26 @@
 
 body, html{
-    /**
-background-image: url(/static/images/Fondo2.png);
-background-size: cover; 
-background-repeat: no-repeat;**/
+
     height: 100%;
     
 }
 
 #myVideo {
-    position: fixed;
-    right: -22%;
-    bottom: -20%;
+    position:fixed;
+    z-index: -1;
+}
 
-
-    width: auto;
-    height: auto;
+@media (min-aspect-ratio: 16/9) {
+    #myVideo {
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    #myVideo { 
+        width:auto;
+        height: 100%;
+    }
 }
 
 .logo {
@@ -38,7 +43,7 @@ background-repeat: no-repeat;**/
 .social_icon span{
     font-size: 60px;
     margin-left: 10px;
-    color: #FFC312;
+    color: #FF8C00;
 }
 
 .social_icon span:hover{
@@ -58,7 +63,7 @@ background-repeat: no-repeat;**/
 
 .input-group-prepend span{
     width: 50px;
-    background-color: #e39000;
+    background-color: #FF8C00;
     color: black;
     border:0 !important;
 }
@@ -83,7 +88,7 @@ input:focus{
 
 .login_btn{
     color: black;
-    background-color: #e39000;
+    background-color: #FF8C00;
     width: 100px;
 }
 

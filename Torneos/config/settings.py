@@ -131,13 +131,13 @@ MEDIA_URL = '/images/'
 MATERIAL_ADMIN_SITE = {
     'HEADER':  ('Torneos'),  # Admin site header
     'TITLE':  ('Torneos'),  # Admin site title
-    'FAVICON':  '/images/favicon.jpg',  # Admin site favicon (path to static should be specified)
-    #'MAIN_BG_COLOR':  'color',  # Admin site main color, css color should be specified
-    #'MAIN_HOVER_COLOR':  'color',  # Admin site main hover color, css color should be specified
-    'PROFILE_PICTURE':  '/images/admin.png',  # Admin site profile picture (path to static should be specified)
-    'PROFILE_BG':  '/images/profilebg.jpg',  # Admin site profile background (path to static should be specified)
-    'LOGIN_LOGO':  '/images/eladmin.jpg',  # Admin site logo on login page (path to static should be specified)
-    #'LOGOUT_BG':  'path/to/image',  # Admin site background on login/logout pages (path to static should be specified)
+    'FAVICON':  '/images/icon.png',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR':  '#FF8C00',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#FF8C00',  # Admin site main hover color, css color should be specified
+    'PROFILE_PICTURE':  '/images/admin.jpeg',  # Admin site profile picture (path to static should be specified)
+    'PROFILE_BG':  '/images/Fondo1.png',  # Admin site profile background (path to static should be specified)
+    'LOGIN_LOGO':  '/images/admin.jpeg',  # Admin site logo on login page (path to static should be specified)
+    'LOGOUT_BG':  '/images/Fondo1.png',  # Admin site background on login/logout pages (path to static should be specified)
     'SHOW_THEMES':  True,  #  Show default admin themes button
     'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
     'NAVBAR_REVERSE': False,  # Hide side navbar by default
