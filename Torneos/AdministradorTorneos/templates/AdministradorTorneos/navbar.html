@@ -1,5 +1,22 @@
 {% load static %}
 
+<style>
+  .msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+  .cs{
+    font-size: 18px;
+    color: rgb(179, 179, 179);
+    margin-right: 20px;
+  }
+  .cs:hover{
+    color: #FF8C00;
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom-2" style="background-color: #fa9d1a; background-image: linear-gradient(45deg, #fa9d1a 0%, #5e00ff 100%);">
   <a class="navbar-brand"  ><img src=" {% static '/images/LogoBlanco.png' %}"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,4 +32,7 @@
       </li>
     </ul>
   </div>
+  <span class="msg">Hola, {{request.user}}</span>
+  <span><a class="cs" href="{% url 'logout' %}">Cerrar Sesión</a></span>
 </nav>
+
