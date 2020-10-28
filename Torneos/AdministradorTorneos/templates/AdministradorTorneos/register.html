@@ -8,32 +8,33 @@
 
 
 {% block body %}
-<form>
+<form method="POST" action="">
+	{% csrf_token %}
 	<div class="input-group form-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text"><i class="fas fa-user"></i></span>
 		</div>
-		<input type="text" class="form-control" placeholder="Usuario">
+		{{form.username}}
 		
 	</div>
 	<div class="input-group form-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 		</div>
-		<input type="password" class="form-control" placeholder="Email">
+		{{form.email}}
 	</div>
 	<div class="input-group form-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text"><i class="fas fa-key"></i></span>
 		</div>
-		<input type="text" class="form-control" placeholder="Contraseña">
+		{{form.password1}}
 		
 	</div>
 	<div class="input-group form-group">
 		<div class="input-group-prepend">
 			<span class="input-group-text"><i class="fas fa-key"></i></span>
 		</div>
-		<input type="text" class="form-control" placeholder="Confirme su Contraseña">
+		{{form.password2}}
 		
 	</div>
 
@@ -41,7 +42,21 @@
 		<input type="submit" value="Register" class="btn float-right login_btn">
 	</div>
 </form>
+<script>
+
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='Usuario';
+form_fields[2].placeholder='Email';
+form_fields[3].placeholder='Contraseña';
+form_fields[4].placeholder='Confirme su contraseña';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
 {% endblock body %}
+
 
 
 
