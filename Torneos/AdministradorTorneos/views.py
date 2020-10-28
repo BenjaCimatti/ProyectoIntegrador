@@ -23,6 +23,21 @@ def registerPage(request):
     context = {'form':form}
     return render(request, 'AdministradorTorneos/register.html', context)
 
+    
 def loginPage(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+        else:
+            messages.info(request, 'El usuario o la contraseña es incorrecto')
+
     context = {}
     return render(request, 'AdministradorTorneos/login.html', context)
