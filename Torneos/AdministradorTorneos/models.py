@@ -5,11 +5,15 @@ from django.contrib.auth.models import User
 
 class Game(models.Model):
     name = models.CharField(max_length=255)
+    def __str__(self):
+        return self.name
 
 
 class Tournament(models.Model):
     name = models.CharField(max_length=255)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 
 class Player(User):
@@ -25,3 +29,5 @@ class Match(models.Model):
     winning_score = models.PositiveIntegerField()
     losing_score = models.PositiveIntegerField()
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
