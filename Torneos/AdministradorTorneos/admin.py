@@ -4,7 +4,12 @@ from django.contrib import admin
 
 from .models import *
 
+class PlayerAdmin(admin.ModelAdmin):
+    readonly_fields = ["id","user"]
+
+    
+
 admin.site.register(Game)
-admin.site.register(Tournament)
+#admin.site.register(Tournament)
 admin.site.register(Player)
-admin.site.register(Match)
+#admin.site.register(Match)
