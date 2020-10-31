@@ -12,11 +12,11 @@ class Game(models.Model):
         return self.name
 
 
-#class Tournament(models.Model):
- #   name = models.CharField(max_length=255)
-  #  game = models.ForeignKey(Game, on_delete=models.CASCADE)
-   # def __str__(self):
-    #    return self.name
+class Tournament(models.Model):
+    name = models.CharField(max_length=255)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 
 class Player(models.Model):
@@ -33,14 +33,32 @@ def create_user_player(sender, instance, created, **kwargs):
 
 
 
-#class Match(models.Model):
- #   name = models.CharField(max_length=255)
-  #  match_map = models.CharField(max_length=255)
-   # match_players = models.ManyToManyField(Player)
-#    winner = models.ForeignKey(Player, related_name='match_winner', default='', on_delete=models.CASCADE)
- #   loser = models.ForeignKey(Player, related_name='match_loser', default='', on_delete=models.CASCADE)
-  #  winning_score = models.PositiveIntegerField()
-   # losing_score = models.PositiveIntegerField()
-#    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
- #   def __str__(self):
-  #      return self.name
+class Match(models.Model):
+    #name = models.CharField(max_length=25)
+    match_map = models.CharField(max_length=30)
+    match_players = models.ManyToManyField(Player, blank=True)
+    winner = models.ForeignKey(Player, related_name='%(class)s_winner', default='', null=True, blank=True, on_delete=models.CASCADE)
+    loser = models.ForeignKey(Player, related_name='%(class)s_loser', default='', null=True, blank=True, on_delete=models.CASCADE)
+    winning_score = models.PositiveIntegerField(null=True, blank=True)
+    losing_score = models.PositiveIntegerField(null=True, blank=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.match_map
+
+class QuarterMatch(Match):
+    tournament = models.ForeignKey(Tournament, null=True,on_delete=models.CASCADE)
+    def __str__(self):
+        return super().__str__()
+
+class SemiMatch(Match):
+    tournament = models.ForeignKey(Tournament, null=True, on_delete=models.CASCADE)
+    def __str__(self):
+        return super().__str__()
+
+class FinalMatch(Match):
+    final = models.OneToOneField(Tournament, null=True, on_delete=models.CASCADE)
+    def __str__(self):
+        return super().__str__()

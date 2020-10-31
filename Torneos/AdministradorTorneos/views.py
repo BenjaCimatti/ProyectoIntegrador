@@ -8,11 +8,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-def update_profile(request, user_id):
-    user = User.objects.get(pk=user_id)
-    user.player.bio = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
-    user.save()
-
 @login_required(login_url='login')
 def homePage(request):
     return render(request, 'AdministradorTorneos/home.html')
@@ -58,3 +53,6 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+def verTorneos(request):
+    return render(request, 'AdministradorTorneos/ver_torneos.html')

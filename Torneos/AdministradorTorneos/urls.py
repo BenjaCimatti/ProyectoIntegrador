@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
     path('home/', views.homePage, name='home'),
+    path('ver_torneos/', views.verTorneos, name='ver_torneos'),
     path('', RedirectView.as_view(url='login/')),
 
     #cambiar contraseña
@@ -15,5 +16,4 @@ urlpatterns = [
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="AdministradorTorneos/password_reset_sent.html"), name="password_reset_done"),
     path('reset_password/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
-    path('update/', views.update_profile, name='update'),
 ]
