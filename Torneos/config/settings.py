@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'material.admin',
     'material.admin.default',
-
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -126,7 +126,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 
 MATERIAL_ADMIN_SITE = {
     'HEADER':  ('Torneos'),  # Admin site header

@@ -6,6 +6,8 @@ from django.contrib.auth import get_user_model
 
 # Create your models here.
 
+from django.core.exceptions import ValidationError
+
 class Game(models.Model):
     name = models.CharField(max_length=255)
     def __str__(self):
@@ -50,6 +52,7 @@ class Match(models.Model):
 
 class QuarterMatch(Match):
     tournament = models.ForeignKey(Tournament, null=True,on_delete=models.CASCADE)
+
     def __str__(self):
         return super().__str__()
 
