@@ -129,24 +129,28 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MATERIAL_ADMIN_SITE = {
-    'HEADER':  ('Torneos'),  # Admin site header
-    'TITLE':  ('Torneos'),  # Admin site title
+    'HEADER':  ('TGN Torneos'),  # Admin site header
+    'TITLE':  ('TGN Torneos'),  # Admin site title
     'FAVICON':  '/images/icon.png',  # Admin site favicon (path to static should be specified)
-    'MAIN_BG_COLOR':  '#FF8C00',  # Admin site main color, css color should be specified
+    'MAIN_BG_COLOR':  '#FF7A00',  # Admin site main color, css color should be specified
     'MAIN_HOVER_COLOR':  '#FF8C00',  # Admin site main hover color, css color should be specified
     'PROFILE_PICTURE':  '/images/admin.jpeg',  # Admin site profile picture (path to static should be specified)
     'PROFILE_BG':  '/images/Fondo1.png',  # Admin site profile background (path to static should be specified)
     'LOGIN_LOGO':  '/images/admin.jpeg',  # Admin site logo on login page (path to static should be specified)
     'LOGOUT_BG':  '/images/Fondo1.png',  # Admin site background on login/logout pages (path to static should be specified)
     'SHOW_THEMES':  True,  #  Show default admin themes button
-    'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
+    'TRAY_REVERSE': False,  # Hide object-tools and additional-submit-line by default
     'NAVBAR_REVERSE': False,  # Hide side navbar by default
     'SHOW_COUNTS': True, # Show instances counts for each model
     'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
         'sites': 'send',
+        'administradortorneos': 'label'
     },
     'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
         'site': 'contact_mail',
+        'tournament': 'settings_applications',
+        'player' : 'person',
+        'game': 'videogame_asset',
     }
 }
 
