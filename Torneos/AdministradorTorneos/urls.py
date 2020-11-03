@@ -9,6 +9,7 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('home/', views.homePage, name='home'),
     path('ver_torneos/', views.verTorneos, name='ver_torneos'),
+    path('torneo/<str:pk>/', views.Torneo, name='torneo'),
     path('', RedirectView.as_view(url='login/')),
 
     #cambiar contraseña

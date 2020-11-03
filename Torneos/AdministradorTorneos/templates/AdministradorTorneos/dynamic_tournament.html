@@ -12,14 +12,60 @@
       <div class="matchups">
         <div class="matchup">
           <div class="participants">
-            <div class="participant winner"><span>Uno</span></div>
-            <div class="participant loser"><span>Ocho</span></div>
+            <div class="participant">
+              <span>
+                
+                {% if qm1.player1 == None %}
+                  
+                  TBD
+
+                {% else %}  
+                
+                  {{qm1.player1}}
+
+                {% endif %}
+                  
+              </span>
+            </div>
+            <div class="participant"><span>
+                
+            {% if qm1.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm1.player2}}
+
+            {% endif %}
+              
+            </span></div>
           </div>
         </div>
         <div class="matchup">
           <div class="participants">
-            <div class="participant"><span>Dos</span></div>
-            <div class="participant winner"><span>Siete</span></div>
+            <div class="participant"><span>
+            {% if qm2.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm2.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+            {% if qm2.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm2.player2}}
+
+            {% endif %}
+            </span></div>
           </div>
         </div>
       </div>
@@ -32,14 +78,54 @@
       <div class="matchups">
         <div class="matchup">
           <div class="participants">
-            <div class="participant"><span>Treis</span></div>
-            <div class="participant winner"><span>Seis</span></div>
+            <div class="participant"><span>
+            {% if qm3.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm3.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+            {% if qm3.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm3.player2}}
+
+            {% endif %}
+            </span></div>
           </div>
         </div>
         <div class="matchup">
           <div class="participants">
-            <div class="participant"><span>Cuatro</span></div>
-            <div class="participant winner"><span>Cinco</span></div>
+            <div class="participant"><span>
+            {% if qm4.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm4.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+            {% if qm4.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{qm4.player2}}
+
+            {% endif %}
+            </span></div>
           </div>
         </div>
       </div>
@@ -54,14 +140,54 @@
       <div class="matchups">
         <div class="matchup">
           <div class="participants">
-            <div class="participant winner"><span>Uno</span></div>
-            <div class="participant"><span>Dos</span></div>
+            <div class="participant"><span>
+            {% if sm1.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{sm1.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+            {% if sm1.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{sm1.player2}}
+
+            {% endif %}              
+            </span></div>
           </div>
         </div>
         <div class="matchup">
           <div class="participants">
-            <div class="participant winner"><span>Seis</span></div>
-            <div class="participant"><span>Cinco</span></div>
+            <div class="participant"><span>
+            {% if sm2.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{sm2.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+            {% if sm2.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{sm2.player2}}
+
+            {% endif %}
+            </span></div>
           </div>
         </div>
       </div>
@@ -76,8 +202,28 @@
       <div class="matchups">
         <div class="matchup">
           <div class="participants">
-            <div class="participant winner"><span>Uno</span></div>
-            <div class="participant"><span>Seis</span></div>
+            <div class="participant"><span>
+            {% if fm.player1 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{fm.player1}}
+
+            {% endif %}
+            </span></div>
+            <div class="participant"><span>
+              {% if fm.player2 == None %}
+                  
+              TBD
+
+            {% else %}  
+            
+              {{fm.player2}}
+
+            {% endif %}
+            </span></div>
           </div>
         </div>
       </div>

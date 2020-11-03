@@ -24,7 +24,7 @@
                     <td>{{i.id}}</td>
                     <td>{{i.name}}</td>
                     <td>{{i.game}}</td>
-                    <td><a href="">Ver Torneo</a></td>
+                    <td><a href="{% url 'torneo' i.id %}">Ver Torneo</a></td>
                 </tr>
                 {% endfor %}
                 
