@@ -33,25 +33,26 @@ class PlayerAdmin(admin.ModelAdmin):
 class TournamentAdmin(admin.ModelAdmin):
     list_display = ('name', 'game')
     list_display_links = ('name', 'game')
-    inlines = [QuarterMatchlInline, SemiMatchlInline, FinalMatchlInline]
+    #inlines = [QuarterMatchlInline, SemiMatchlInline, FinalMatchlInline]
     class Media:
         css = {
             'all': ('css/no-addanother-button.css',),
         }
 
 class QuarterMatchAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
+    # def get_model_perms(self, request):
+    #     """
+    #     Return empty perms dict thus hiding the model from admin index.
+    #     """
+    #     return {}
+    list_display = ('tournament',)
 
-class SemiMatchAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
+# class SemiMatchAdmin(admin.ModelAdmin):
+#     def get_model_perms(self, request):
+#         """
+#         Return empty perms dict thus hiding the model from admin index.
+#         """
+#         return {}
 
 class FinalMatchAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
@@ -66,5 +67,5 @@ admin.site.register(Game)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(QuarterMatch, QuarterMatchAdmin)
-admin.site.register(SemiMatch, SemiMatchAdmin)
+admin.site.register(SemiMatch, )#SemiMatchAdmin)
 admin.site.register(FinalMatch, FinalMatchAdmin)

@@ -58,3 +58,21 @@ def logoutUser(request):
 def verTorneos(request):
     tournaments = Tournament.objects.all()
     return render(request, 'AdministradorTorneos/ver_torneos.html', {'tournaments': tournaments})
+
+def Torneo(request, pk):
+    tournaments = Tournament.objects.get(id=pk)
+
+    qm = tournaments.quartermatch_set.all().order_by('matchNumber')
+    qm1 = qm[0]
+    qm2 = qm[1]
+    qm3 = qm[2]
+    qm4 = qm[3]
+
+    sm = tournaments.semimatch_set.all().order_by('matchNumber')
+    sm1 = sm[0]
+    sm2 = sm[1]
+
+    fm = FinalMatch.objects.get(tournament=tournaments)
+
+    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm}
+    return render(request, 'AdministradorTorneos/dynamic_tournament.html', context)
