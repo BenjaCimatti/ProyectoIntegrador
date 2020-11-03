@@ -1,1 +1,37 @@
 {% extends 'AdministradorTorneos/main.html' %}
+
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body my-title">
+            <h5>Torneos</h5>
+        </div>
+        <div class="card card-body my-table">
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Juego</th>
+                    <th></th>
+                </tr>
+
+                {% for i in tournaments %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.game}}</td>
+                    <td><a href="">Ver Torneo</a></td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}

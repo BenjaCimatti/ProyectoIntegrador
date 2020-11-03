@@ -6,6 +6,7 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .models import *
 # Create your views here.
 
 @login_required(login_url='login')
@@ -55,4 +56,5 @@ def logoutUser(request):
     return redirect('login')
 
 def verTorneos(request):
-    return render(request, 'AdministradorTorneos/ver_torneos.html')
+    tournaments = Tournament.objects.all()
+    return render(request, 'AdministradorTorneos/ver_torneos.html', {'tournaments': tournaments})
