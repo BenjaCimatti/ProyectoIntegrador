@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -51,15 +52,20 @@ def loginPage(request):
         context = {}
         return render(request, 'AdministradorTorneos/login.html', context)
 
+@login_required(login_url='login')
 def logoutUser(request):
     logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
 def verTorneos(request):
     tournaments = Tournament.objects.all()
     return render(request, 'AdministradorTorneos/ver_torneos.html', {'tournaments': tournaments})
 
+@login_required(login_url='login')
 def Torneo(request, pk):
+
+
     tournaments = Tournament.objects.get(id=pk)
 
     qm = tournaments.quartermatch_set.all().order_by('matchNumber')
@@ -74,5 +80,18 @@ def Torneo(request, pk):
 
     fm = FinalMatch.objects.get(tournament=tournaments)
 
-    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm}
+    user_id = request.user.id
+    player = Player.objects.get(id=user_id)
+
+    if request.method == 'POST':
+        flag = request.POST['flag']
+        if flag == 'true':
+            flag = True
+        if flag:
+            qm1.player1 = None
+            qm1.save()
+            return redirect('home')
+            
+
+    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm, 'user_id':user_id}
     return render(request, 'AdministradorTorneos/dynamic_tournament.html', context)
