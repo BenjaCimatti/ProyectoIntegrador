@@ -3,8 +3,9 @@
 
 {% block content %}
   
-    
 
+<input class="btn btn-sm float-right" value="Inscribirme" type="submit" onclick="postFlag()">
+<input class="btn btn-sm float-right" value="Actualizar" type="button" onclick="window.location.reload();">
   
 <div class="bracket">
   <section class="round quarterfinals">
@@ -231,5 +232,24 @@
   </section>
 </div>
 
+<script>
+
+  var flag = false
+
+
+  function postFlag() {
+
+    var flag = true
+
+    $.post( window.location.href,
+    {
+      csrfmiddlewaretoken: '{{ csrf_token }}' ,
+      flag: flag,
+    },
     
-  {% endblock content %}
+    )
+  }
+
+</script>
+
+{% endblock content %}

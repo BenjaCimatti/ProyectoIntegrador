@@ -61,7 +61,6 @@ class FinalMatchAdmin(admin.ModelAdmin):
         """
         return {}
 
-    
 
 admin.site.register(Game)
 admin.site.register(Tournament, TournamentAdmin)
