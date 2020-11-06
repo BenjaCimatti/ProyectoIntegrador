@@ -83,15 +83,41 @@ def Torneo(request, pk):
     user_id = request.user.id
     player = Player.objects.get(id=user_id)
 
+      
+
+    countPlayer = 0
+    maxPlayers = None
+
+
+    for i in range(4):
+        if qm[i].player1 != None:
+            countPlayer += 1
+        else:
+            maxPlayers = False
+            break
+        if qm[i].player2 != None:
+            countPlayer += 1
+        else:
+            maxPlayers = False
+            break
+    
+    if countPlayer == 8:
+        maxPlayers = True
+        countPlayer = 0 
+
     if request.method == 'POST':
         flag = request.POST['flag']
         if flag == 'true':
             flag = True
-        if flag:
-            qm1.player1 = None
-            qm1.save()
+        if flag: #Se apreta el boton
+
+
+
+
+            qm4.player2 = player
+            qm4.save()
             return redirect('home')
             
 
-    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm, 'user_id':user_id}
+    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm, 'user_id':user_id, 'maxPlayers':maxPlayers}
     return render(request, 'AdministradorTorneos/dynamic_tournament.html', context)
