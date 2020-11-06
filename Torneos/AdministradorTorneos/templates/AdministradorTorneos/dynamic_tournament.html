@@ -4,7 +4,12 @@
 {% block content %}
   
 
+{% if maxPlayers == True %}
+<input class="btn btn-sm float-right" value="Inscribirme" type="submit" disabled onclick="postFlag()">
+{% else %}
 <input class="btn btn-sm float-right" value="Inscribirme" type="submit" onclick="postFlag()">
+{% endif %}
+
 <input class="btn btn-sm float-right" value="Actualizar" type="button" onclick="window.location.reload();">
   
 <div class="bracket">
@@ -235,7 +240,6 @@
 <script>
 
   var flag = false
-
 
   function postFlag() {
 
