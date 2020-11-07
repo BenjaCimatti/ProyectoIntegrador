@@ -13,7 +13,6 @@
         <div class="card card-body my-table">
             <table class="table">
                 <tr>
-                    <th>#</th>
                     <th>Nombre</th>
                     <th>Juego</th>
                     <th></th>
@@ -21,10 +20,9 @@
 
                 {% for i in tournaments %}
                 <tr>
-                    <td>{{i.id}}</td>
                     <td>{{i.name}}</td>
                     <td>{{i.game}}</td>
-                    <td><a href="{% url 'torneo' i.id %}">Ver Torneo</a></td>
+                    <td><a href="{% url 'torneo' i.id %}"><input type="button" value="Ver Torneo" class="btn float-right" style="background-color: #FF8C00; color: black;"></a></td>
                 </tr>
                 {% endfor %}
                 

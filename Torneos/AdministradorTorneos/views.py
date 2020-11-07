@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm
+from .forms import CreateUserForm, QuarterMatchForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -86,38 +86,44 @@ def Torneo(request, pk):
       
 
     countPlayer = 0
-    maxPlayers = None
+    deactivateBtn = None
 
 
     for i in range(4):
         if qm[i].player1 != None:
             countPlayer += 1
         else:
-            maxPlayers = False
+            deactivateBtn = False
             break
         if qm[i].player2 != None:
             countPlayer += 1
         else:
-            maxPlayers = False
+            deactivateBtn = False
             break
     
     if countPlayer == 8:
-        maxPlayers = True
-        countPlayer = 0 
+        deactivateBtn = True
+        countPlayer = 0
+    else:
+        isP1 = qm.filter(player1=player)
+        isP2 = qm.filter(player2=player)
+        if isP1.exists() or isP2.exists():
+            deactivateBtn = True
+        else:
+            deactivateBtn = False
 
+
+    
+
+    
+    form = QuarterMatchForm()
     if request.method == 'POST':
-        flag = request.POST['flag']
-        if flag == 'true':
-            flag = True
-        if flag: #Se apreta el boton
+        
 
-
-
-
-            qm4.player2 = player
-            qm4.save()
-            return redirect('home')
+        qm1.player1 = player
+        qm1.save()
+        return redirect('ver_torneos')
             
 
-    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm, 'user_id':user_id, 'maxPlayers':maxPlayers}
+    context = {'tournaments': tournaments, 'qm1': qm1, 'qm2': qm2, 'qm3': qm3, 'qm4': qm4, 'sm1':sm1, 'sm2':sm2, 'fm': fm, 'user_id':user_id, 'deactivateBtn':deactivateBtn}
     return render(request, 'AdministradorTorneos/dynamic_tournament.html', context)

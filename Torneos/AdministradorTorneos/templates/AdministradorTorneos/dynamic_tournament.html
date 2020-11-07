@@ -3,15 +3,15 @@
 
 {% block content %}
   
+<form method="POST" action="">
+	{% csrf_token %}
+  {% if deactivateBtn == True %}
+  <input class="btn float-right" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
+  {% else %}
+  <input class="btn float-right" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;">
+  {% endif %}
+</form>
 
-{% if maxPlayers == True %}
-<input class="btn btn-sm float-right" value="Inscribirme" type="submit" disabled onclick="postFlag()">
-{% else %}
-<input class="btn btn-sm float-right" value="Inscribirme" type="submit" onclick="postFlag()">
-{% endif %}
-
-<input class="btn btn-sm float-right" value="Actualizar" type="button" onclick="window.location.reload();">
-  
 <div class="bracket">
   <section class="round quarterfinals">
     <div class="winners">
@@ -237,7 +237,8 @@
   </section>
 </div>
 
-<script>
+
+<!-- <script>
 
   var flag = false
 
@@ -254,6 +255,7 @@
     )
   }
 
-</script>
+</script> -->
+
 
 {% endblock content %}
