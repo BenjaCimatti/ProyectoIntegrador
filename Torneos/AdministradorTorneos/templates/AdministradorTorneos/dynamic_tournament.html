@@ -3,7 +3,7 @@
 
 {% block content %}
   
-<form method="POST" action="">
+<form action="" method="POST">
 	{% csrf_token %}
   {% if deactivateBtn == True %}
   <input class="btn float-right" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
