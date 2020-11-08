@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import *
+import random
 
 # Create your views here.
 
@@ -113,15 +114,104 @@ def Torneo(request, pk):
             deactivateBtn = False
 
 
+    def playerOne():
+        qm1.player1 = player
+        qm1.save()
+        
+
+    def playerTwo():
+        qm1.player2 = player
+        qm1.save()
+        
+
+    def playerThree():
+        qm2.player1 = player
+        qm2.save()
+        
+
+    def playerFour():
+        qm2.player2 = player
+        qm2.save()
+        
+
+    def playerFive():
+        qm3.player1 = player
+        qm3.save()
+        
+
+    def playerSix():
+        qm3.player2 = player
+        qm3.save()
+        
+        
+    def playerSeven():
+        qm4.player1 = player
+        qm4.save()
+        
+
+    def playerEight():
+        qm4.player2 = player
+        qm4.save()
+
     
+    playerOptions = {
+        1 : playerOne,
+        2 : playerTwo,
+        3 : playerThree,
+        4 : playerFour,
+        5 : playerFive,
+        6 : playerSix,
+        7 : playerSeven,
+        8 : playerEight,
+    }
+
+    def matchOne():
+        if qm1.player1 == None:
+            playerOptions[1]()
+        else:
+            playerOptions[2]()
+
+
+    def matchTwo():
+        if qm2.player1 == None:
+            playerOptions[3]()
+        else:
+            playerOptions[4]()
+
+
+    def matchThree():
+        if qm3.player1 == None:
+            playerOptions[5]()
+        else:
+            playerOptions[6]()
+
+
+    def matchFour():
+        if qm4.player1 == None:
+            playerOptions[7]()
+        else:
+            playerOptions[8]()
+
+
+    matchOptions = {
+        0 : matchOne,
+        1 : matchTwo,
+        2 : matchThree,
+        3 : matchFour,
+    }
 
     
     form = QuarterMatchForm()
     if request.method == 'POST':
-        
+        flag = True
+        while flag:
 
-        qm1.player1 = player
-        qm1.save()
+            randomMatch = random.randint(0, 3)
+            if qm[randomMatch].player1 == None or qm[randomMatch].player2 == None:
+                matchOptions[randomMatch]()
+            
+                flag = False
+
         return redirect('ver_torneos')
             
 
