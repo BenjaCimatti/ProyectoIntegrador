@@ -2,241 +2,245 @@
 
 
 {% block content %}
-  
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 <form action="" method="POST">
 	{% csrf_token %}
-  {% if deactivateBtn == True %}
-  <input class="btn float-right" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
-  {% else %}
-  <input class="btn float-right" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;">
-  {% endif %}
+
 </form>
+<div class="bracketBtn">
+  <div class="bracket">
 
-<div class="bracket">
-  <section class="round quarterfinals">
-    <div class="winners">
-      <div class="matchups">
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant">
-              <span>
-                
-                {% if qm1.player1 == None %}
+    <section class="round quarterfinals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant">
+                <span>
                   
-                  TBD
-
-                {% else %}  
-                
-                  {{qm1.player1}}
-
-                {% endif %}
+                  {% if qm1.player1 == None %}
+                    
+                    TBD
+  
+                  {% else %}  
                   
-              </span>
-            </div>
-            <div class="participant"><span>
-                
-            {% if qm1.player2 == None %}
+                    {{qm1.player1}}
+  
+                  {% endif %}
+                    
+                </span>
+              </div>
+              <div class="participant"><span>
                   
-              TBD
-
-            {% else %}  
-            
-              {{qm1.player2}}
-
-            {% endif %}
+              {% if qm1.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
               
-            </span></div>
+                {{qm1.player2}}
+  
+              {% endif %}
+                
+              </span></div>
+            </div>
+          </div>
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if qm2.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm2.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+              {% if qm2.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm2.player2}}
+  
+              {% endif %}
+              </span></div>
+            </div>
           </div>
         </div>
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if qm2.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm2.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-            {% if qm2.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm2.player2}}
-
-            {% endif %}
-            </span></div>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if qm3.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm3.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+              {% if qm3.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm3.player2}}
+  
+              {% endif %}
+              </span></div>
+            </div>
+          </div>
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if qm4.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm4.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+              {% if qm4.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{qm4.player2}}
+  
+              {% endif %}
+              </span></div>
+            </div>
+          </div>
+        </div>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+    <section class="round semifinals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if sm1.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{sm1.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+              {% if sm1.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{sm1.player2}}
+  
+              {% endif %}              
+              </span></div>
+            </div>
+          </div>
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if sm2.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{sm2.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+              {% if sm2.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{sm2.player2}}
+  
+              {% endif %}
+              </span></div>
+            </div>
+          </div>
+        </div>
+        <div class="connector">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+    <section class="round finals">
+      <div class="winners">
+        <div class="matchups">
+          <div class="matchup">
+            <div class="participants">
+              <div class="participant"><span>
+              {% if fm.player1 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{fm.player1}}
+  
+              {% endif %}
+              </span></div>
+              <div class="participant"><span>
+                {% if fm.player2 == None %}
+                    
+                TBD
+  
+              {% else %}  
+              
+                {{fm.player2}}
+  
+              {% endif %}
+              </span></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="connector">
-        <div class="merger"></div>
-        <div class="line"></div>
-      </div>
-    </div>
-    <div class="winners">
-      <div class="matchups">
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if qm3.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm3.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-            {% if qm3.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm3.player2}}
-
-            {% endif %}
-            </span></div>
-          </div>
-        </div>
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if qm4.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm4.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-            {% if qm4.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{qm4.player2}}
-
-            {% endif %}
-            </span></div>
-          </div>
-        </div>
-      </div>
-      <div class="connector">
-        <div class="merger"></div>
-        <div class="line"></div>
-      </div>
-    </div>
-  </section>
-  <section class="round semifinals">
-    <div class="winners">
-      <div class="matchups">
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if sm1.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{sm1.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-            {% if sm1.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{sm1.player2}}
-
-            {% endif %}              
-            </span></div>
-          </div>
-        </div>
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if sm2.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{sm2.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-            {% if sm2.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{sm2.player2}}
-
-            {% endif %}
-            </span></div>
-          </div>
-        </div>
-      </div>
-      <div class="connector">
-        <div class="merger"></div>
-        <div class="line"></div>
-      </div>
-    </div>
-  </section>
-  <section class="round finals">
-    <div class="winners">
-      <div class="matchups">
-        <div class="matchup">
-          <div class="participants">
-            <div class="participant"><span>
-            {% if fm.player1 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{fm.player1}}
-
-            {% endif %}
-            </span></div>
-            <div class="participant"><span>
-              {% if fm.player2 == None %}
-                  
-              TBD
-
-            {% else %}  
-            
-              {{fm.player2}}
-
-            {% endif %}
-            </span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
+  {% if deactivateBtn == True %}
+  <input class="btnIns" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
+  {% else %}
+  <input class="btnIns" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;">
+  {% endif %}
 </div>
 
+  
 
 <!-- <script>
 
