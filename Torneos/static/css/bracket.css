@@ -127,6 +127,12 @@ body{
 .bracket .round.finals .winners .connector .line {
   height: 1.5rem;
 }
+.scoreText{
+  float: right; 
+  clear: both; 
+  margin-top: 4%; 
+  margin-right: 5%;
+}
 .btnIns{
   margin-top: 10%;
   margin-left: 25%;
