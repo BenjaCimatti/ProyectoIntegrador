@@ -84,10 +84,20 @@ def Torneo(request, pk):
     user_id = request.user.id
     player = Player.objects.get(id=user_id)
 
-      
-
     countPlayer = 0
     deactivateBtn = None
+
+    sm1.player1 = qm1.winner
+    sm1.player2 = qm2.winner
+    sm1.save()
+
+    sm2.player1 = qm3.winner
+    sm2.player2 = qm4.winner
+    sm2.save()
+
+    fm.player1 = sm1.winner
+    fm.player2 = sm2.winner
+    fm.save()
 
 
     for i in range(4):
