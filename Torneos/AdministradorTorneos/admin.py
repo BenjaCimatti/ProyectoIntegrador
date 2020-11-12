@@ -7,17 +7,17 @@ from django.conf import settings
 
 class QuarterMatchlInline(admin.TabularInline):
     model = QuarterMatch
-    fields = ['match_map', 'player1', 'player2']
+    fields = ['match_map', 'score1', 'score2']
     extra = 4
 
 class SemiMatchlInline(admin.TabularInline):
     model = SemiMatch
-    fields = ['match_map', 'player1', 'player2']
+    fields = ['match_map', 'score1', 'score2']
     extra = 2
 
 class FinalMatchlInline(admin.TabularInline):
     model = FinalMatch
-    fields = ['match_map', 'player1', 'player2']
+    fields = ['match_map', 'score1', 'score2']
     extra = 1
 
 class PlayerAdmin(admin.ModelAdmin):
@@ -33,7 +33,7 @@ class PlayerAdmin(admin.ModelAdmin):
 class TournamentAdmin(admin.ModelAdmin):
     list_display = ('name', 'game')
     list_display_links = ('name', 'game')
-    #inlines = [QuarterMatchlInline, SemiMatchlInline, FinalMatchlInline]
+    inlines = [QuarterMatchlInline, SemiMatchlInline, FinalMatchlInline]
     class Media:
         css = {
             'all': ('css/no-addanother-button.css',),

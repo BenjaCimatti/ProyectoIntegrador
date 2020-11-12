@@ -1,11 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
 html {
   font-size: 1rem;
 }
 
-body{
-    background-color: #ebeff5;
-}
 
 .my-table{
     margin: 1%;
@@ -70,7 +66,7 @@ body{
   margin: 0 1.25rem;
   line-height: 3;
   font-size: 1rem;
-  font-family: "Roboto Slab";
+  font-family:'Montserrat', sans-serif;
 }
 .bracket .round .winners > div.connector.filled .line, .bracket .round .winners > div.connector.filled.bottom .merger:after, .bracket .round .winners > div.connector.filled.top .merger:before {
   border-color: #60c645;
