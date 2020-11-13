@@ -33,6 +33,17 @@ class Match(models.Model):
     player2 = models.ForeignKey(Player, related_name='%(class)s_player2', null=True, blank=True, on_delete=models.CASCADE)
     score1 = models.PositiveIntegerField(null=True, blank=True)
     score2 = models.PositiveIntegerField(null=True, blank=True)
+    won = models.BooleanField(null=True, blank=True)
+
+    def clean(self, *args, **kwargs):
+        if self.score1 != None and self.score2 != None:
+            if self.score1 == self.score2:
+                raise ValidationError('No pueden expresarse empates')
+        super().clean(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
 
     class Meta:
         abstract = True

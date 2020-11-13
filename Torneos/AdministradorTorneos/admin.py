@@ -7,18 +7,26 @@ from django.conf import settings
 
 class QuarterMatchlInline(admin.TabularInline):
     model = QuarterMatch
-    fields = ['match_map', 'score1', 'score2']
-    extra = 4
+    fields = ['match_map', 'score1', 'score2','matchNumber']
+    extra = 0
+    readonly_fields = ('matchNumber',)
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 class SemiMatchlInline(admin.TabularInline):
     model = SemiMatch
-    fields = ['match_map', 'score1', 'score2']
-    extra = 2
+    fields = ['match_map', 'score1', 'score2','matchNumber']
+    extra = 0
+    readonly_fields = ('matchNumber',)
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 class FinalMatchlInline(admin.TabularInline):
     model = FinalMatch
-    fields = ['match_map', 'score1', 'score2']
+    fields = ['match_map', 'score1', 'score2',]
     extra = 1
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 class PlayerAdmin(admin.ModelAdmin):
     readonly_fields = ['id','user']
