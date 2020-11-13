@@ -87,6 +87,94 @@ def Torneo(request, pk):
     countPlayer = 0
     deactivateBtn = None
 
+    if qm1.score1 != None and qm1.score2 != None:
+        if qm1.score1 > qm1.score2:
+            qm1.winner = qm1.player1
+            qm1.loser = qm1.player2
+            qm1.save()
+            qm1.won = True
+        else:
+            qm1.winner = qm1.player2
+            qm1.loser = qm1.player1
+            qm1.save()
+            qm1.won = False
+
+    if qm2.score1 != None and qm2.score2 != None:
+        if qm2.score1 > qm2.score2:
+            qm2.winner = qm2.player1
+            qm2.loser = qm2.player2
+            qm2.save()
+            qm2.won = True
+        else:
+            qm2.winner = qm2.player2
+            qm2.loser = qm2.player1
+            qm2.save()
+            qm2.won = False
+
+    if qm3.score1 != None and qm3.score2 != None:
+        if qm3.score1 > qm3.score2:
+            qm3.winner = qm3.player1
+            qm3.loser = qm3.player2
+            qm3.save()
+            qm3.won = True
+        else:
+            qm3.winner = qm3.player2
+            qm3.loser = qm3.player1
+            qm3.save()
+            qm3.won = False
+
+    if qm4.score1 != None and qm4.score2 != None:
+        if qm4.score1 > qm4.score2:
+            qm4.winner = qm4.player1
+            qm4.loser = qm4.player2
+            qm4.save()
+            qm4.won = True
+        else:
+            qm4.winner = qm4.player2
+            qm4.loser = qm4.player1
+            qm4.save()
+            qm4.won = False
+
+
+    if sm1.score1 != None and sm1.score2 != None:
+        if sm1.score1 > sm1.score2:
+            sm1.winner = sm1.player1
+            sm1.loser = sm1.player2
+            sm1.save()
+            sm1.won = True
+        else:
+            sm1.winner = sm1.player2
+            sm1.loser = sm1.player1
+            sm1.save()
+            sm1.won = False
+
+    if sm2.score1 != None and sm2.score2 != None:
+        if sm2.score1 > sm2.score2:
+            sm2.winner = sm2.player1
+            sm2.loser = sm2.player2
+            sm2.save()
+            sm2.won = True
+        else:
+            sm2.winner = sm2.player2
+            sm2.loser = sm2.player1
+            sm2.save()
+            sm2.won = False
+
+
+    if fm.score1 != None and fm.score2 != None:
+        if fm.score1 > fm.score2:
+            fm.winner = fm.player1
+            fm.loser = fm.player2
+            fm.save()
+            fm.won = True
+        else:
+            fm.winner = fm.player2
+            fm.loser = fm.player1
+            fm.save()
+            fm.won = False
+
+
+
     sm1.player1 = qm1.winner
     sm1.player2 = qm2.winner
     sm1.save()
