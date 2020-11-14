@@ -13,17 +13,19 @@ class Game(models.Model):
     def __str__(self):
         return self.name
 
-class Tournament(models.Model):
-    name = models.CharField(max_length=255)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
-
 class Player(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, editable=False, on_delete=models.CASCADE)
     def __str__(self):
         return self.user.username
+    
+class Tournament(models.Model):
+    name = models.CharField(max_length=30)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    winner = models.ForeignKey(Player, related_name='%(class)s_winner', default='', null=True, blank=True, on_delete=models.CASCADE)
+    description = models.CharField(max_length=70, blank=True, default='')
+    def __str__(self):
+        return self.name
 
 class Match(models.Model):
     match_map = models.CharField(max_length=30, default='TBD')

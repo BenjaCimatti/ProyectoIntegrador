@@ -166,11 +166,15 @@ def Torneo(request, pk):
             fm.winner = fm.player1
             fm.loser = fm.player2
             fm.save()
+            tournaments.winner = fm.winner
+            tournaments.save()
             fm.won = True
         else:
             fm.winner = fm.player2
             fm.loser = fm.player1
             fm.save()
+            tournaments.winner = fm.winner
+            tournaments.save()
             fm.won = False
 
 

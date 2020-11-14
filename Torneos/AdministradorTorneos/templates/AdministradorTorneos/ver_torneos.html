@@ -5,7 +5,7 @@
 
 <br>
 
-<div class="row">
+<div class>
     <div class="col-md">
         <div class="card card-body my-title">
             <h5>Torneos</h5>
@@ -15,6 +15,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Juego</th>
+                    <th>Campeón</th>
                     <th></th>
                 </tr>
 
@@ -22,6 +23,15 @@
                 <tr>
                     <td>{{i.name}}</td>
                     <td>{{i.game}}</td>
+                    <td>
+                        
+                        {% if i.winner == None %}
+                            TBD
+                        {% else %}
+                            {{i.winner}}
+                        {% endif %}
+                            
+                    </td>
                     <td><a href="{% url 'torneo' i.id %}"><input type="button" value="Ver Torneo" class="btn float-right" style="background-color: #FF8C00; color: black;"></a></td>
                 </tr>
                 {% endfor %}
