@@ -1,16 +1,40 @@
 {% extends 'AdministradorTorneos/main.html' %}
 
-
+{% load static %}
 {% block content %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-<form action="" method="POST">
-	{% csrf_token %}
-  {% if deactivateBtn == True %}
-  <input class="btnIns" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
-  {% else %}
-  <input class="btnIns" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;">
-  {% endif %}
-</form>
+
+<div class="card" style="width: 20%; position: fixed; margin-left: 1.5%; margin-top: 1.5%;">
+  <div class="card-body">
+    <h4 class="card-title">{{tournaments.name}}</h4>
+    <h5 class="card-subtitle mb-2 text-muted">{{tournaments.game}}</h5>
+    <p class="card-text">{{tournaments.description}}</p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% if deactivateBtn == True %}
+        <input class="btn" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;" disabled>
+      {% else %}
+        <input class="btn" value="Inscribirme" type="submit" style="background-color: #FF8C00; color: black;">
+      {% endif %}
+    </form>
+
+    
+    {% if tournaments.winner == None %}
+      
+    {% else %}
+      <br>
+      <img  class="img-fluid" src="{% static '/images/icon.png' %}">
+      <br><br>
+      <h4 class="card-title">{{tournaments.winner}}</h4>
+      <h5 class="card-subtitle mb-2 text-muted">Campeón del Torneo</h5>
+
+    {% endif %}
+
+  </div>
+</div>
+
+
+
 <div class="bracketBtn">
   <div class="bracket">
 
@@ -158,10 +182,29 @@
             </div>
           </div>
         </div>
+        {% if qm1.score1 != None and qm1.score2 != None and qm2.score1 != None and qm2.score2 != None %}
+        <div class="connector filled top bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif qm1.score1 != None and qm1.score2 != None %}
+        <div class="connector filled top">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif qm2.score1 != None and qm2.score2 != None %}
+        <div class="connector filled bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% else %}
         <div class="connector">
           <div class="merger"></div>
           <div class="line"></div>
         </div>
+        {% endif %}
+          
+
       </div>
       <div class="winners">
         <div class="matchups">
@@ -302,10 +345,27 @@
             </div>
           </div>
         </div>
+        {% if qm3.score1 != None and qm3.score2 != None and qm4.score1 != None and qm4.score2 != None %}
+        <div class="connector filled top bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif qm3.score1 != None and qm3.score2 != None %}
+        <div class="connector filled top">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif qm4.score1 != None and qm4.score2 != None %}
+        <div class="connector filled bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% else %}
         <div class="connector">
           <div class="merger"></div>
           <div class="line"></div>
         </div>
+        {% endif %}
       </div>
     </section>
     <section class="round semifinals">
@@ -452,10 +512,27 @@
             </div>
           </div>
         </div>
+        {% if sm1.score1 != None and sm1.score2 != None and sm2.score1 != None and sm2.score2 != None %}
+        <div class="connector filled top bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif sm1.score1 != None and sm1.score2 != None %}
+        <div class="connector filled top">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% elif sm2.score1 != None and sm2.score2 != None %}
+        <div class="connector filled bottom">
+          <div class="merger"></div>
+          <div class="line"></div>
+        </div>
+        {% else %}
         <div class="connector">
           <div class="merger"></div>
           <div class="line"></div>
         </div>
+        {% endif %}
       </div>
     </section>
     <section class="round finals">

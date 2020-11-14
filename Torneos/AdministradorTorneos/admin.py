@@ -42,6 +42,7 @@ class TournamentAdmin(admin.ModelAdmin):
     list_display = ('name', 'game')
     list_display_links = ('name', 'game')
     inlines = [QuarterMatchlInline, SemiMatchlInline, FinalMatchlInline]
+    readonly_fields = ['winner']
     class Media:
         css = {
             'all': ('css/no-addanother-button.css',),
