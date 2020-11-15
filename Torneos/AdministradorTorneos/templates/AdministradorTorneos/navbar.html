@@ -27,18 +27,32 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'ver_torneos' %}">Torneos</a>
-      </li>
+      
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ver_torneos' %}">Torneos</a>
+        </li>
+      {% else %}
+        
+      {% endif %}
+        
     </ul>
   </div>
 
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
-      <span class="navbar-text">{{request.user}}<span style="visibility: hidden;">a</span>|</span>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
-      </li>
+      
+      {% if request.user.is_authenticated %}
+        <span class="navbar-text">{{request.user}}<span style="visibility: hidden;">a</span>|</span>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+        </li>
+      {% endif %}
+        
     </ul>
   </div>
 </nav>
