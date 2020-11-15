@@ -11,7 +11,7 @@ import random
 
 # Create your views here.
 
-@login_required(login_url='login')
+
 def homePage(request):
 
     usersCount = Player.objects.all().count()
@@ -59,17 +59,17 @@ def loginPage(request):
         context = {}
         return render(request, 'AdministradorTorneos/login.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='home')
 def logoutUser(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
+@login_required(login_url='home')
 def verTorneos(request):
     tournaments = Tournament.objects.all()
     return render(request, 'AdministradorTorneos/ver_torneos.html', {'tournaments': tournaments})
 
-@login_required(login_url='login')
+@login_required(login_url='home')
 def Torneo(request, pk):
 
 

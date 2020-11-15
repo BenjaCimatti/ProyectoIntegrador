@@ -10,7 +10,8 @@ urlpatterns = [
     path('home/', views.homePage, name='home'),
     path('ver_torneos/', views.verTorneos, name='ver_torneos'),
     path('torneo/<str:pk>/', views.Torneo, name='torneo'),
-    path('', RedirectView.as_view(url='login/')),
+    #path('home_n_l/', views.homeNotLoggedPage, name='homeNotLogged'),
+    path('', RedirectView.as_view(url='home/')),
 
     #cambiar contraseña
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="AdministradorTorneos/password_reset.html"), name="reset_password"),
