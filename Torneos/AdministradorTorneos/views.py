@@ -13,7 +13,13 @@ import random
 
 @login_required(login_url='login')
 def homePage(request):
-    return render(request, 'AdministradorTorneos/home.html')
+
+    usersCount = Player.objects.all().count()
+    tournamentsCount = Tournament.objects.all().count()
+
+
+    context = {'usersCount':usersCount, 'tournamentsCount':tournamentsCount}
+    return render(request, 'AdministradorTorneos/home.html', context)
 
 def registerPage(request):
     

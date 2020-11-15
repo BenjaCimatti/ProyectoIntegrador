@@ -85,3 +85,20 @@ body {
 .pinterest {
     background: #cb2027
 }
+
+section#counter-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.stats {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.stats .fa {
+    color: #FF8C00;
+    font-size: 60px;
+}
