@@ -1,0 +1,11 @@
+.add-inline-link {
+    visibility: hidden
+}
+
+.side-wrapper-tools{
+    display: none;
+}
+
+#tray{
+    display: none;
+}

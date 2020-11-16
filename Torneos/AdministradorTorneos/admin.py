@@ -45,7 +45,7 @@ class TournamentAdmin(admin.ModelAdmin):
     readonly_fields = ['winner']
     class Media:
         css = {
-            'all': ('css/no-addanother-button.css',),
+            'all': ('css/tournament.css',),
         }
 
 class QuarterMatchAdmin(admin.ModelAdmin):
