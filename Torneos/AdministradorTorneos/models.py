@@ -56,17 +56,53 @@ class Match(models.Model):
 class QuarterMatch(Match):
     tournament = models.ForeignKey(Tournament, null=True,on_delete=models.CASCADE)
     matchNumber = models.FloatField(null=True)
+    InscriptionFinished = models.BooleanField(default=False)
+    
+    def clean(self, *args, **kwargs):
+        if self.InscriptionFinished == False:
+            if self.score1 != None or self.score2 != None:
+                raise ValidationError('Aún no están todos los puestos ocupados')
+        super().clean(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return super().__str__()
 
 class SemiMatch(Match):
     tournament = models.ForeignKey(Tournament, null=True, on_delete=models.CASCADE)
     matchNumber = models.FloatField(null=True)
+    QmFinished = models.BooleanField(default=False)
+    
+    def clean(self, *args, **kwargs):
+        if self.QmFinished == False:
+            if self.score1 != None or self.score2 != None:
+                raise ValidationError('Aún no terminaron los cuartos')
+        super().clean(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return super().__str__()
 
 class FinalMatch(Match):
     tournament = models.OneToOneField(Tournament, null=True, on_delete=models.CASCADE)
+    SmFinished = models.BooleanField(default=False)
+    
+    def clean(self, *args, **kwargs):
+        if self.SmFinished == False:
+            if self.score1 != None or self.score2 != None:
+                raise ValidationError('Aún no terminaron las semis')
+        super().clean(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return super().__str__()
 

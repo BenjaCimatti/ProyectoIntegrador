@@ -211,6 +211,15 @@ def Torneo(request, pk):
             break
     
     if countPlayer == 8:
+        qm1.InscriptionFinished = True
+        qm2.InscriptionFinished = True
+        qm3.InscriptionFinished = True
+        qm4.InscriptionFinished = True
+        qm1.save()
+        qm2.save()
+        qm3.save()
+        qm4.save()
+
         deactivateBtn = True
         countPlayer = 0
     else:
@@ -308,6 +317,55 @@ def Torneo(request, pk):
         3 : matchFour,
     }
 
+    qmScoreCount = 0
+    for i in range(4):
+        if qm[i].score1 != None:
+            qmScoreCount += 1
+        else:
+            sm1.QmFinished = False
+            sm2.QmFinished = False
+            sm1.save()
+            sm2.save()
+            break
+
+        if qm[i].score2 != None:
+            qmScoreCount += 1
+        else:
+            sm1.QmFinished = False
+            sm2.QmFinished = False
+            sm1.save()
+            sm2.save()
+            break
+
+    if qmScoreCount == 8:
+        sm1.QmFinished = True
+        sm2.QmFinished = True
+        sm1.save()
+        sm2.save()
+        qmScoreCount = 0
+
+    ##
+
+    smScoreCount = 0
+    for i in range(2):
+        if sm[i].score1 != None:
+            smScoreCount += 1
+        else:
+            fm.SmFinished = False
+            fm.save()
+            break
+
+        if sm[i].score2 != None:
+            smScoreCount += 1
+        else:
+            fm.SmFinished = False
+            fm.save()
+            break
+
+    if smScoreCount == 4:
+        fm.SmFinished = True
+        fm.save()
+        smScoreCount = 0
     
     form = QuarterMatchForm()
     if request.method == 'POST':
