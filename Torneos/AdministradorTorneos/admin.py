@@ -49,19 +49,18 @@ class TournamentAdmin(admin.ModelAdmin):
         }
 
 class QuarterMatchAdmin(admin.ModelAdmin):
-    # def get_model_perms(self, request):
-    #     """
-    #     Return empty perms dict thus hiding the model from admin index.
-    #     """
-    #     return {}
-    list_display = ('tournament',)
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
 
-# class SemiMatchAdmin(admin.ModelAdmin):
-#     def get_model_perms(self, request):
-#         """
-#         Return empty perms dict thus hiding the model from admin index.
-#         """
-#         return {}
+class SemiMatchAdmin(admin.ModelAdmin):
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
 
 class FinalMatchAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
@@ -75,5 +74,5 @@ admin.site.register(Game)
 admin.site.register(Tournament, TournamentAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(QuarterMatch, QuarterMatchAdmin)
-admin.site.register(SemiMatch, )#SemiMatchAdmin)
+admin.site.register(SemiMatch, SemiMatchAdmin)
 admin.site.register(FinalMatch, FinalMatchAdmin)
